@@ -1,0 +1,48 @@
+{
+  "name": "@mitchallen/mockbot-document",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/mockbot-document.js",
+  "scripts": {
+    "//": "To use: npm start (useful if not a module)",
+    "start": "node dist/mockbot-document.js",
+    "//": "To use: npm test (assumes mocha installed globally)",
+    "test": "grunt && /usr/local/bin/mocha --recursive --timeout 20000",
+    "//": "To use: npm run test-nodemon (assumes global location of mocha)",
+    "test-nodemon": "nodemon /usr/local/bin/mocha --timeout 5000",
+    "test-debug": "nodemon /usr/local/bin/mocha -g '@DEBUG' --recursive --timeout 20000",
+    "test-jenkins": "grunt && /usr/local/bin/mocha --recursive --timeout 20000 -R xunit test/ > test-reports.xml",
+    "web-server": "python -m SimpleHTTPServer $PORT || 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/mitchallen/mockbot-document.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitchallen/mockbot-document.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/mitchallen/mockbot-document.git"
+  },
+  "author": "Mitch Allen <npm@mitchallen.com> (http://mitchallen.com)",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browserify-derequire": "^0.9.4",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-bump": "^0.8.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jsdoc-to-markdown": "^2.0.0",
+    "grunt-shell": "^1.3.0",
+    "should": "^10.0.0",
+    "supertest": "^2.0.0"
+  }
+}
