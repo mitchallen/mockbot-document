@@ -8,7 +8,7 @@
 
 var request = require('supertest'),
     should = require('should'),
-    modulePath = "../dist/mockbot-document";
+    modulePath = "../modules/index";
 
 describe('module factory smoke test', () => {
 
@@ -41,22 +41,15 @@ describe('module factory smoke test', () => {
         done();
     })
 
-    it('create method with no spec should return null', done => {
+    it('create method with no spec should return object', done => {
         var obj = _factory.create();
-        should.not.exist(obj);
+        should.exist(obj);
         done();
     });
 
     it('create method with spec should return object', done => {
         var obj = _factory.create({});
         should.exist(obj);
-        done();
-    });
-
-    it('health method should return ok', done => {
-        var obj = _factory.create({});
-        should.exist(obj);
-        obj.health().should.eql("OK");
         done();
     });
 });

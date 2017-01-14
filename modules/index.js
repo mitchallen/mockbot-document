@@ -1,5 +1,5 @@
 /**
-    Module: @mitchallen/mockbot-document
+    Module: mockbot-document
     Author: Mitch Allen
 */
 
@@ -7,6 +7,14 @@
 /*jshint esversion: 6 */
 
 "use strict";
+
+/**
+ * Mock Element
+ * @external mockbot-element
+ * @see {@link https://www.npmjs.com/package/mockbot-element|mockbot-element}
+ */
+
+var elementFactory = require("mockbot-element");
 
 /**
  * Module
@@ -25,30 +33,45 @@
  * @param {Object} options Named parameters object
  * @returns {module:mockbot-document}
  * @example <caption>Usage example</caption>
- * var factory = require("@mitchallen/mockbot-document");
+ * var factory = require("mockbot-document");
  * var obj = factory.create({});
  */
 module.exports.create = (spec) => {
-    if(!spec) {
-        return null;
-    }
+
+    spec = spec || {};
     // private 
-    let _package = "@mitchallen/mockbot-document";
+
     return {
         // public
-        /** Returns the package name
+        /** mock document.querySelector()
           * @function
           * @instance
           * @memberof module:mockbot-document
+          * @example <caption>usage</caption>
+          * document.querySelector("...");
         */
-        package: () => _package,
-        /** Health check
+        querySelector: function () { return null; },
+        /** mock document.getElementById()
           * @function
           * @instance
           * @memberof module:mockbot-document
-          * @example <caption>Health check</caption>
-          * obj.health.should.eql("OK");
+          * @returns {external:mockbot-element}
+          * @example <caption>usage</caption>
+          * var el = document.getElementById("id");
         */
-        health: () => "OK"
+        getElementById: function (id) { 
+            return id === "found" ? elementFactory.create() : null; 
+        },
+        /** mock document.createElement()
+          * @function
+          * @instance
+          * @memberof module:mockbot-document
+          * @returns {external:mockbot-element}
+          * @example <caption>usage</caption>
+          * var el = document.createElement("id");
+        */
+        createElement: function(id) {
+            return elementFactory.create();
+        }
     };
 };
