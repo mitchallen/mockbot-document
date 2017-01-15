@@ -109,7 +109,7 @@ Module
     * [.mockElement()](#module_mockbot-document+mockElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
     * [.querySelector()](#module_mockbot-document+querySelector)
     * [.getElementById()](#module_mockbot-document+getElementById) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
-    * [.createElement()](#module_mockbot-document+createElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
+    * [.createElement(tagName)](#module_mockbot-document+createElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
 
 <a name="module_mockbot-document+mockElement"></a>
 
@@ -143,10 +143,15 @@ var el = document.getElementById("id");
 ```
 <a name="module_mockbot-document+createElement"></a>
 
-### mockbot-document.createElement() ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
+### mockbot-document.createElement(tagName) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
 mock document.createElement()
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| tagName | <code>string</code> | name of HTML element (a, div, x-thing, etc.) |
+
 **Example** *(usage)*  
 ```js
 var el = document.createElement("div");
@@ -206,6 +211,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.4
+
+* updated mock-element to version 0.1.4 (contains tagName property)
 
 #### Version 0.1.3
 

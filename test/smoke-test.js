@@ -78,16 +78,18 @@ describe('module factory smoke test', () => {
     })
 
    it('getElementById for non-existant id should return null', done => {
-        var id = 'alpha';   // must have at least one other item 
-        document.mockElement( { id: id } );
+        var tagName = "div",
+            id = 'alpha';   // must have at least one other item 
+        document.mockElement( { tagName: tagName, id: id } );
         var result = document.getElementById('foo');
         should.not.exist(result);
         done();
     })
 
     it('getElementById for existing id should return object', done => {
-        var id = 'alpha';
-        document.mockElement( { id: id } );
+        var tagName = "div",
+            id = 'alpha'; 
+        document.mockElement( { tagName: tagName, id: id } );
         var result = document.getElementById(id);
         should.exist(result);
         done();
@@ -101,6 +103,15 @@ describe('module factory smoke test', () => {
     it('createElement should return object', done => {
         var result = document.createElement('div');
         should.exist(result);
+        done();
+    })
+
+    it('createElement should return object with tagName as uppercase', done => {
+        var tagName = "div";
+        var result = document.createElement(tagName);
+        should.exist(result);
+        should.exist(result.tagName);
+        result.tagName.should.eql(tagName.toUpperCase());
         done();
     })
 });

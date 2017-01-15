@@ -87,13 +87,14 @@ module.exports.create = function (spec) {
         /** mock document.createElement()
           * @function
           * @instance
+          * @param {string} tagName name of HTML element (a, div, x-thing, etc.)
           * @memberof module:mockbot-document
           * @returns {external:mockbot-element}
           * @example <caption>usage</caption>
           * var el = document.createElement("div");
         */
-        createElement: function createElement(type) {
-            return elementFactory.create({ type: type });
+        createElement: function createElement(tagName) {
+            return elementFactory.create({ tagName: tagName });
         }
     };
 };
@@ -115,6 +116,7 @@ module.exports.create = function (spec) {
  * Module
  * @module mockbot-element
  * @property {String} id - the id of the element
+ * @property {String} tagName - read-only tagName of element as uppercase (i.e. 'DIV')
  */
 
 /**
@@ -136,6 +138,13 @@ module.exports.create = function (spec) {
 module.exports.create = function (spec) {
   spec = spec || {};
   // private
+  var m_tagName = spec.tagName || "";
+
+  if (!m_tagName.match(/^[[A-Za-z_][\w+$-_]+/)) {
+    // browser throws DOMexception
+    throw new Error("The tagName provided ('" + m_tagName + "') is not a valid name");
+  }
+
   var m_attribute = [];
   if (spec.id) {
     m_attribute.id = spec.id;
@@ -189,6 +198,11 @@ module.exports.create = function (spec) {
         return m_attribute.id = id;
       },
       enumerable: true
+    },
+
+    "tagName": {
+      writable: false,
+      value: m_tagName.toUpperCase()
     }
 
   });

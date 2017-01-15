@@ -82,13 +82,14 @@ module.exports.create = (spec) => {
         /** mock document.createElement()
           * @function
           * @instance
+          * @param {string} tagName name of HTML element (a, div, x-thing, etc.)
           * @memberof module:mockbot-document
           * @returns {external:mockbot-element}
           * @example <caption>usage</caption>
           * var el = document.createElement("div");
         */
-        createElement: function(type) {
-            return elementFactory.create( { type: type } );
+        createElement: function(tagName) {
+            return elementFactory.create( { tagName: tagName } );
         }
     };
 };
