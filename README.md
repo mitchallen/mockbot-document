@@ -212,6 +212,11 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.7
+
+* updated mock-element to version 0.1.7
+* removed client example
+
 #### Version 0.1.6
 
 * updated mock-element to version 0.1.6
@@ -223,6 +228,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 #### Version 0.1.4
 
 * updated mock-element to version 0.1.4 (contains tagName property)
+* updated createElement to create element using tagName
 
 #### Version 0.1.3
 
