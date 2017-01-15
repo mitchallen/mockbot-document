@@ -128,11 +128,16 @@ module.exports.create = function (spec) {
 /** 
 * Factory method 
 * It takes one spec parameter that must be an object with named parameters
-* @param {Object} options Named parameters object
+* @param {Object} spec Named parameters object
+* @param {string} spec.tagName required HTML tagName (a, div, x-thing, etc.)
+* @param {string} spec.id optional id attribute for HTML element
 * @returns {module:mockbot-element}
-* @example <caption>Usage example</caption>
+* @example <caption>Usage</caption>
 * var factory = require("mockbot-element");
-* var obj = factory.create({});
+* var obj = factory.create({ tagName: "div" });
+* @example <caption>Usage with id</caption>
+* var factory = require("mockbot-element");
+* var obj = factory.create({ tagName: "div", id: "d1" });
 */
 
 module.exports.create = function (spec) {
