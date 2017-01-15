@@ -78,13 +78,11 @@ module.exports.create = function (spec) {
                 var el = elements[i];
                 // var elId = el.getAttribute("id");
                 var elId = el.id;
-                if (!elId) {
-                    continue;
-                }
                 if (elId == id) {
                     return el;
                 }
             }
+            return null;
         },
         /** mock document.createElement()
           * @function

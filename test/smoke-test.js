@@ -71,7 +71,15 @@ describe('module factory smoke test', () => {
         done();
     })
 
-    it('getElementById for non-existant id should return null', done => {
+    it('getElementById with no elements should return null', done => {
+        var result = document.getElementById('foo');
+        should.not.exist(result);
+        done();
+    })
+
+   it('getElementById for non-existant id should return null', done => {
+        var id = 'alpha';   // must have at least one other item 
+        document.mockElement( { id: id } );
         var result = document.getElementById('foo');
         should.not.exist(result);
         done();
