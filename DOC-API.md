@@ -24,37 +24,50 @@ Module
 
 
 * [mockbot-document](#module_mockbot-document)
-    * [.mockElement()](#module_mockbot-document+mockElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
-    * [.querySelector()](#module_mockbot-document+querySelector)
-    * [.getElementById()](#module_mockbot-document+getElementById) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
+    * [.mockElement(spec)](#module_mockbot-document+mockElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
+    * [.querySelector()](#module_mockbot-document+querySelector) ⇒ <code>null</code>
+    * [.getElementById(id)](#module_mockbot-document+getElementById) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
     * [.createElement(tagName)](#module_mockbot-document+createElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
 
 <a name="module_mockbot-document+mockElement"></a>
 
-### mockbot-document.mockElement() ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
+### mockbot-document.mockElement(spec) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
 creates a mock element to simulate html elements
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| spec | <code>Object</code> | Named parameters object |
+| spec.tagName | <code>string</code> | Required element type name (a, div, x-thing, etc.) |
+| spec.id | <code>string</code> | Optional element id |
+
 **Example** *(usage)*  
 ```js
-document.mockElement( { id: "alpha" } );
+document.mockElement( { tagName: "div", d: "alpha" } );
 ```
 <a name="module_mockbot-document+querySelector"></a>
 
-### mockbot-document.querySelector()
-mock document.querySelector()
+### mockbot-document.querySelector() ⇒ <code>null</code>
+mock document.querySelector().
+CURRENTLY NON-FUNCTIONAL - just a place holder for now.
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 **Example** *(usage)*  
 ```js
-document.querySelector("...");
+document.querySelector("..."");
 ```
 <a name="module_mockbot-document+getElementById"></a>
 
-### mockbot-document.getElementById() ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
+### mockbot-document.getElementById(id) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
 mock document.getElementById()
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> | Element id |
+
 **Example** *(usage)*  
 ```js
 var el = document.getElementById("id");
@@ -81,7 +94,7 @@ Factory module
 
 <a name="module_mockbot-document-factory.create"></a>
 
-### mockbot-document-factory.create(options) ⇒ <code>[mockbot-document](#module_mockbot-document)</code>
+### mockbot-document-factory.create(spec) ⇒ <code>[mockbot-document](#module_mockbot-document)</code>
 Factory method 
 It takes one spec parameter that must be an object with named parameters
 
@@ -89,7 +102,7 @@ It takes one spec parameter that must be an object with named parameters
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | <code>Object</code> | Named parameters object |
+| spec | <code>Object</code> | Named parameters object |
 
 **Example** *(Usage example)*  
 ```js

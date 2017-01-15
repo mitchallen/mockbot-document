@@ -31,7 +31,7 @@ var elementFactory = _dereq_("mockbot-element");
 /** 
 * Factory method 
 * It takes one spec parameter that must be an object with named parameters
-* @param {Object} options Named parameters object
+* @param {Object} spec Named parameters object
 * @returns {module:mockbot-document}
 * @example <caption>Usage example</caption>
 * var factory = require("mockbot-document");
@@ -44,46 +44,51 @@ module.exports.create = function (spec) {
     var elements = [];
 
     return {
+
         /** creates a mock element to simulate html elements
            * @function
            * @instance
+           * @param {Object} spec Named parameters object
+           * @param {string} spec.tagName Required element type name (a, div, x-thing, etc.)
+           * @param {string} spec.id Optional element id
            * @memberof module:mockbot-document
            * @returns {external:mockbot-element}
            * @example <caption>usage</caption>
-           * document.mockElement( { id: "alpha" } );
+           * document.mockElement( { tagName: "div", d: "alpha" } );
          */
         mockElement: function mockElement(spec) {
             return elements.push(elementFactory.create(spec));
         },
-        /** mock document.querySelector()
+
+        /** mock document.querySelector().
+          * CURRENTLY NON-FUNCTIONAL - just a place holder for now.
           * @function
           * @instance
           * @memberof module:mockbot-document
+          * @returns {null}
           * @example <caption>usage</caption>
-          * document.querySelector("...");
+          * document.querySelector("..."");
         */
         querySelector: function querySelector() {
             return null;
         },
+
         /** mock document.getElementById()
           * @function
           * @instance
+          * @param {string} id Element id
           * @memberof module:mockbot-document
           * @returns {external:mockbot-element}
           * @example <caption>usage</caption>
           * var el = document.getElementById("id");
         */
         getElementById: function getElementById(id) {
-            for (var i = 0, len = elements.length; i < len; i++) {
-                var el = elements[i];
-                // var elId = el.getAttribute("id");
-                var elId = el.id;
-                if (elId == id) {
-                    return el;
-                }
-            }
-            return null;
+            var result = elements.filter(function (el) {
+                return el.id === id;
+            });
+            return result.length > 0 ? result : null;
         },
+
         /** mock document.createElement()
           * @function
           * @instance
