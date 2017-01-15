@@ -16,8 +16,6 @@ describe('module factory smoke test', () => {
 
     before( done => {
         // Call before all tests
-        delete require.cache[require.resolve(modulePath)];
-        _factory = require(modulePath);
         done();
     });
 
@@ -28,11 +26,15 @@ describe('module factory smoke test', () => {
 
     beforeEach( done => {
         // Call before each test
+        delete require.cache[require.resolve(modulePath)];
+        _factory = require(modulePath);
+        global.document = _factory.create();
         done();
     });
 
     afterEach( done => {
-        // Call after eeach test
+        // Call after each test
+        delete global.document;
         done();
     });
 
@@ -52,4 +54,37 @@ describe('module factory smoke test', () => {
         should.exist(obj);
         done();
     });
+
+    it('querySelector should be available', done => {
+        should.exist(document.querySelector);
+        done();
+    })
+
+    it('querySelector with no spec should return null', done => {
+        var result = document.querySelector();
+        should.not.exist(result);
+        done();
+    })
+
+    it('getElementById should be available', done => {
+        should.exist(document.getElementById);
+        done();
+    })
+
+    it('getElementById for non-existant id should return null', done => {
+        var result = document.getElementById('foo');
+        should.not.exist(result);
+        done();
+    })
+
+    it('createElement should be available', done => {
+        should.exist(document.createElement);
+        done();
+    })
+
+    it('createElement should return object', done => {
+        var result = document.createElement('div');
+        should.exist(result);
+        done();
+    })
 });

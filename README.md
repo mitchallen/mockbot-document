@@ -24,8 +24,60 @@ mock html dom document
 ## Installation
 
     $ npm init
-    $ npm install mockbot-document --save
-  
+    $ npm install mockbot-document --save-dev
+    
+* * *
+
+## Usage
+
+With tools like __browserify__, it's easy to create client side code in node.js. But, when testing with tools like __mocha__, code that references browser elements or the document document object will throw an error.
+
+This can be worked around by creating a mock object that simulates the document object. Assign it to __global__ before each test starts, then delete it from global when each test finishes.  Here is an example using mocha:
+
+	"use strict";
+
+    var documentFactory = require("mockbot-document");
+    
+    describe('module smoke test', () => {
+    
+      beforeEach( done => {
+        // Call before all tests
+        // mock browser document
+        global.document = documentFactory.create();
+        done();
+      });
+      
+	  afterEach( done => {
+        // Call after all tests
+        delete global.document;
+        done();
+      });
+      
+      it('createElement should return object', done => {
+        var result = document.createElement('div');
+        should.exist(result);
+        done();
+      })
+    }
+    
+* * *
+
+## Limitations
+
+The main objective of this module is to provide placeholders to avoid lint and compiler errors. Duplicating functionality of a real browser is not as important. Though attempts will be made to simulate a response from a browser, actual functionality is not guaranteed.
+
+## Available Methods
+
+Only a small subset of mock document methods are currently available. Over time others will be added.  See the module reference below to see what is currently available. 
+
+## Requesting Methods
+
+If a specific method is desired ASAP, open up an issue on github.com to request it.
+
+## Elements
+
+For information on available element methods, see __[mockbot-element](https://www.npmjs.com/package/mockbot-element)__.
+
 * * *
 
 ## Modules
@@ -144,6 +196,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.1
+
+* added test cases to bring coverage up to 100%
 
 #### Version 0.1.0 
 
