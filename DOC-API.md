@@ -67,7 +67,7 @@ mock document.createElement()
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 **Example** *(usage)*  
 ```js
-var el = document.createElement("id");
+var el = document.createElement("div");
 ```
 <a name="module_mockbot-document-factory"></a>
 

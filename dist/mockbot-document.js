@@ -90,7 +90,7 @@ module.exports.create = function (spec) {
           * @memberof module:mockbot-document
           * @returns {external:mockbot-element}
           * @example <caption>usage</caption>
-          * var el = document.createElement("id");
+          * var el = document.createElement("div");
         */
         createElement: function createElement(type) {
             return elementFactory.create({ type: type });

@@ -149,7 +149,7 @@ mock document.createElement()
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 **Example** *(usage)*  
 ```js
-var el = document.createElement("id");
+var el = document.createElement("div");
 ```
 <a name="module_mockbot-document-factory"></a>
 
@@ -206,6 +206,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.3
+
+* fixed doc errors
 
 #### Version 0.1.2
 
