@@ -38,11 +38,22 @@ var elementFactory = require("mockbot-element");
  */
 module.exports.create = (spec) => {
 
-    spec = spec || {};
-    // private 
+    spec = spec || {}; 
+
+    var elements = [];
 
     return {
-        // public
+       /** creates a mock element to simulate html elements
+          * @function
+          * @instance
+          * @memberof module:mockbot-document
+          * @returns {external:mockbot-element}
+          * @example <caption>usage</caption>
+          * document.mockElement( { id: "alpha" } );
+        */
+        mockElement: function(spec) {
+          return elements.push(elementFactory.create( spec ));
+        },
         /** mock document.querySelector()
           * @function
           * @instance
@@ -60,7 +71,13 @@ module.exports.create = (spec) => {
           * var el = document.getElementById("id");
         */
         getElementById: function (id) { 
-            return id === "found" ? elementFactory.create() : null; 
+            for (var i = 0, len = elements.length; i < len; i++) {
+                var el = elements[i];
+                // var elId = el.getAttribute("id");
+                var elId = el.id;
+                if(!elId) { continue; }
+                if(elId == id) { return el; }
+            }
         },
         /** mock document.createElement()
           * @function
@@ -70,8 +87,8 @@ module.exports.create = (spec) => {
           * @example <caption>usage</caption>
           * var el = document.createElement("id");
         */
-        createElement: function(id) {
-            return elementFactory.create();
+        createElement: function(type) {
+            return elementFactory.create( { type: type } );
         }
     };
 };

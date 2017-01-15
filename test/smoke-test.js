@@ -77,6 +77,14 @@ describe('module factory smoke test', () => {
         done();
     })
 
+    it('getElementById for existing id should return object', done => {
+        var id = 'alpha';
+        document.mockElement( { id: id } );
+        var result = document.getElementById(id);
+        should.exist(result);
+        done();
+    })
+
     it('createElement should be available', done => {
         should.exist(document.createElement);
         done();

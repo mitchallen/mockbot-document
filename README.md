@@ -106,10 +106,21 @@ Module
 
 
 * [mockbot-document](#module_mockbot-document)
+    * [.mockElement()](#module_mockbot-document+mockElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
     * [.querySelector()](#module_mockbot-document+querySelector)
     * [.getElementById()](#module_mockbot-document+getElementById) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
     * [.createElement()](#module_mockbot-document+createElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
 
+<a name="module_mockbot-document+mockElement"></a>
+
+### mockbot-document.mockElement() ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
+creates a mock element to simulate html elements
+
+**Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
+**Example** *(usage)*  
+```js
+document.mockElement( { id: "alpha" } );
+```
 <a name="module_mockbot-document+querySelector"></a>
 
 ### mockbot-document.querySelector()
@@ -170,7 +181,6 @@ Mock Element
 **Kind**: global external  
 **See**: [mockbot-element](https://www.npmjs.com/package/mockbot-element)  
 
-
 * * *
 
 ## Testing
@@ -200,6 +210,8 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 #### Version 0.1.1
 
 * added test cases to bring coverage up to 100%
+* added mockElement method
+* updated to latest version of mockbot-element
 
 #### Version 0.1.0 
 
