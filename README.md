@@ -30,7 +30,7 @@ mock html dom document
 
 ## Usage
 
-With tools like __browserify__, it's easy to create client side code in node.js. But, when testing with tools like __mocha__, code that references browser elements or the document document object will throw an error.
+With tools like __browserify__, it's easy to create client side code in node.js. But, when testing with tools like __mocha__, code that references browser elements or the document object will throw an error.
 
 This can be worked around by creating a mock object that simulates the document object. Assign it to __global__ before each test starts, then delete it from global when each test finishes.  Here is an example using mocha:
 
