@@ -1,6 +1,6 @@
 {
   "name": "mockbot-document",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "mock html dom document",
   "main": "dist/mockbot-document.js",
   "scripts": {
