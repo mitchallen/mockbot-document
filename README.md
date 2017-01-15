@@ -209,7 +209,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 #### Version 0.1.2
 
-* updated code coverage
+* fixed version history
 
 #### Version 0.1.1
 
