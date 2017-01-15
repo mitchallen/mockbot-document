@@ -166,7 +166,7 @@ module.exports.create = function (spec) {
     /** mock element.getAttribute
       * @function
       * @instance
-      * @param {Object} options Named parameters object
+      * @param {string} name attribute name
       * @memberof module:mockbot-element
       * @example <caption>usage</caption>
       * var w = el.getAttribute("width");
