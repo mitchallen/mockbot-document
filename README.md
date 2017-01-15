@@ -137,7 +137,7 @@ CURRENTLY NON-FUNCTIONAL - just a place holder for now.
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 **Example** *(usage)*  
 ```js
-document.querySelector("..."");
+document.querySelector("...");
 ```
 <a name="module_mockbot-document+getElementById"></a>
 
@@ -224,6 +224,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.10
+
+* fixed type-o in doc
 
 #### Version 0.1.9
 

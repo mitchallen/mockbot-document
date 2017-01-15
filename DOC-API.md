@@ -55,7 +55,7 @@ CURRENTLY NON-FUNCTIONAL - just a place holder for now.
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 **Example** *(usage)*  
 ```js
-document.querySelector("..."");
+document.querySelector("...");
 ```
 <a name="module_mockbot-document+getElementById"></a>
 

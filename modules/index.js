@@ -66,7 +66,7 @@ module.exports.create = (spec) => {
           * @memberof module:mockbot-document
           * @returns {null}
           * @example <caption>usage</caption>
-          * document.querySelector("..."");
+          * document.querySelector("...");
         */
         querySelector: function () { return null; },
 
