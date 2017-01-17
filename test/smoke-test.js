@@ -114,4 +114,16 @@ describe('module factory smoke test', () => {
         result.tagName.should.eql(tagName.toUpperCase());
         done();
     })
+
+    it('mockElement should create element', done => {
+        var tag = "div",
+            id = "m1",
+            el1 = document.mockElement( { tagName: tag, id: id } );
+        should.exist(el1);
+        var el2 = document.getElementById(id)
+        should.exist(el2);
+        el2.tagName.should.eql(tag.toUpperCase());
+        el2.id.should.eql(id);
+        done();
+    })
 });

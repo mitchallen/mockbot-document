@@ -225,6 +225,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.12
+
+* fixed issue where getElementById was returning array instead of first element
+
 #### Version 0.1.11
 
 * updated mockbot-element to version 0.1.8

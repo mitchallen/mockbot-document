@@ -86,7 +86,7 @@ module.exports.create = function (spec) {
             var result = elements.filter(function (el) {
                 return el.id === id;
             });
-            return result.length > 0 ? result : null;
+            return result.length > 0 ? result[0] : null;
         },
 
         /** mock document.createElement()
