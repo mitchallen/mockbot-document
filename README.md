@@ -225,6 +225,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Version History
 
+#### Version 0.1.11
+
+* updated mockbot-element to version 0.1.8
+
 #### Version 0.1.10
 
 * fixed type-o in doc
