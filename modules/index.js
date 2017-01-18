@@ -44,7 +44,7 @@ module.exports.create = (spec) => {
 
     return {
 
-       /** creates a mock element to simulate html elements
+       /** Creates a mock element to simulate html elements.
           * @function
           * @instance
           * @param {Object} spec Named parameters object
@@ -53,13 +53,17 @@ module.exports.create = (spec) => {
           * @memberof module:mockbot-document
           * @returns {external:mockbot-element}
           * @example <caption>usage</caption>
-          * document.mockElement( { tagName: "div", d: "alpha" } );
+          * document.mockElement( { tagName: tagName, id: id } );
+          * var result = document.getElementById(id);
+          * should.exist(result);
         */
         mockElement: function(spec) {
-          return elements.push(elementFactory.create( spec ));
+            var el = elementFactory.create( spec );
+            elements.push( el );
+            return el;
         },
 
-        /** mock document.querySelector().
+        /** Mock document.querySelector().
           * CURRENTLY NON-FUNCTIONAL - just a place holder for now.
           * @function
           * @instance
@@ -70,7 +74,7 @@ module.exports.create = (spec) => {
         */
         querySelector: function () { return null; },
 
-        /** mock document.getElementById()
+        /** Mock document.getElementById()
           * @function
           * @instance
           * @param {string} id Element id
@@ -84,7 +88,21 @@ module.exports.create = (spec) => {
             return result.length > 0 ? result[0] : null; 
         },
 
-        /** mock document.createElement()
+        /** Mock document.getElementsByTagName()
+          * @function
+          * @instance
+          * @param {string} id Element id
+          * @memberof module:mockbot-document
+          * @returns {Array.<external:mockbot-element>}
+          * @example <caption>usage</caption>
+          * var elArray = document.getElementsByTagName("div");
+        */
+        getElementsByTagName: function (tagName) { 
+            var result = elements.filter( (el) => el.tagName === tagName.toUpperCase() );
+            return result.length > 0 ? result : null; 
+        },
+
+        /** Mock document.createElement()
           * @function
           * @instance
           * @param {string} tagName name of HTML element (a, div, x-thing, etc.)

@@ -1,6 +1,6 @@
 /**
     Module: @mitchallen/mockbot-document
-      Test: smoke-test
+      Test: create-element-test
     Author: Mitch Allen
 */
 
@@ -10,7 +10,7 @@ var request = require('supertest'),
     should = require('should'),
     modulePath = "../modules/index";
 
-describe('module factory smoke test', () => {
+describe('createElement', () => {
 
     var _factory = null;
 
@@ -38,31 +38,23 @@ describe('module factory smoke test', () => {
         done();
     });
 
-    it('module should exist', done => {
-        should.exist(_factory);
+    it('should exist', done => {
+        should.exist(document.createElement);
         done();
     })
 
-    it('create method with no spec should return object', done => {
-        var obj = _factory.create();
-        should.exist(obj);
-        done();
-    });
-
-    it('create method with spec should return object', done => {
-        var obj = _factory.create({});
-        should.exist(obj);
-        done();
-    });
-
-    it('querySelector should be available', done => {
-        should.exist(document.querySelector);
+    it('should return object', done => {
+        var result = document.createElement('div');
+        should.exist(result);
         done();
     })
 
-    it('querySelector with no spec should return null', done => {
-        var result = document.querySelector();
-        should.not.exist(result);
+    it('should return object with tagName as uppercase', done => {
+        var tagName = "div";
+        var result = document.createElement(tagName);
+        should.exist(result);
+        should.exist(result.tagName);
+        result.tagName.should.eql(tagName.toUpperCase());
         done();
     })
 });

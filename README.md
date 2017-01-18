@@ -109,12 +109,13 @@ Module
     * [.mockElement(spec)](#module_mockbot-document+mockElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
     * [.querySelector()](#module_mockbot-document+querySelector) ⇒ <code>null</code>
     * [.getElementById(id)](#module_mockbot-document+getElementById) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
+    * [.getElementsByTagName(id)](#module_mockbot-document+getElementsByTagName) ⇒ <code>[Array.&lt;mockbot-element&gt;](#external_mockbot-element)</code>
     * [.createElement(tagName)](#module_mockbot-document+createElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
 
 <a name="module_mockbot-document+mockElement"></a>
 
 ### mockbot-document.mockElement(spec) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
-creates a mock element to simulate html elements
+Creates a mock element to simulate html elements.
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 
@@ -126,12 +127,14 @@ creates a mock element to simulate html elements
 
 **Example** *(usage)*  
 ```js
-document.mockElement( { tagName: "div", d: "alpha" } );
+document.mockElement( { tagName: tagName, id: id } );
+var result = document.getElementById(id);
+should.exist(result);
 ```
 <a name="module_mockbot-document+querySelector"></a>
 
 ### mockbot-document.querySelector() ⇒ <code>null</code>
-mock document.querySelector().
+Mock document.querySelector().
 CURRENTLY NON-FUNCTIONAL - just a place holder for now.
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
@@ -142,7 +145,7 @@ document.querySelector("...");
 <a name="module_mockbot-document+getElementById"></a>
 
 ### mockbot-document.getElementById(id) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
-mock document.getElementById()
+Mock document.getElementById()
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 
@@ -154,10 +157,25 @@ mock document.getElementById()
 ```js
 var el = document.getElementById("id");
 ```
+<a name="module_mockbot-document+getElementsByTagName"></a>
+
+### mockbot-document.getElementsByTagName(id) ⇒ <code>[Array.&lt;mockbot-element&gt;](#external_mockbot-element)</code>
+Mock document.getElementsByTagName()
+
+**Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> | Element id |
+
+**Example** *(usage)*  
+```js
+var elArray = document.getElementsByTagName("div");
+```
 <a name="module_mockbot-document+createElement"></a>
 
 ### mockbot-document.createElement(tagName) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
-mock document.createElement()
+Mock document.createElement()
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 
@@ -199,6 +217,7 @@ Mock Element
 **Kind**: global external  
 **See**: [mockbot-element](https://www.npmjs.com/package/mockbot-element)  
 
+
 * * *
 
 ## Testing
@@ -224,6 +243,11 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.13
+
+* added getElementsByTagName
+* fixed mockElement documentation
 
 #### Version 0.1.12
 
