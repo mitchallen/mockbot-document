@@ -91,7 +91,7 @@ module.exports.create = (spec) => {
         /** Mock document.getElementsByTagName()
           * @function
           * @instance
-          * @param {string} id Element id
+          * @param {string} tagName Element tagName (div,p,a,etc.)
           * @memberof module:mockbot-document
           * @returns {Array.<external:mockbot-element>}
           * @example <caption>usage</caption>

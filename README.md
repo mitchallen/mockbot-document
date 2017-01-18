@@ -109,7 +109,7 @@ Module
     * [.mockElement(spec)](#module_mockbot-document+mockElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
     * [.querySelector()](#module_mockbot-document+querySelector) ⇒ <code>null</code>
     * [.getElementById(id)](#module_mockbot-document+getElementById) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
-    * [.getElementsByTagName(id)](#module_mockbot-document+getElementsByTagName) ⇒ <code>[Array.&lt;mockbot-element&gt;](#external_mockbot-element)</code>
+    * [.getElementsByTagName(tagName)](#module_mockbot-document+getElementsByTagName) ⇒ <code>[Array.&lt;mockbot-element&gt;](#external_mockbot-element)</code>
     * [.createElement(tagName)](#module_mockbot-document+createElement) ⇒ <code>[mockbot-element](#external_mockbot-element)</code>
 
 <a name="module_mockbot-document+mockElement"></a>
@@ -159,14 +159,14 @@ var el = document.getElementById("id");
 ```
 <a name="module_mockbot-document+getElementsByTagName"></a>
 
-### mockbot-document.getElementsByTagName(id) ⇒ <code>[Array.&lt;mockbot-element&gt;](#external_mockbot-element)</code>
+### mockbot-document.getElementsByTagName(tagName) ⇒ <code>[Array.&lt;mockbot-element&gt;](#external_mockbot-element)</code>
 Mock document.getElementsByTagName()
 
 **Kind**: instance method of <code>[mockbot-document](#module_mockbot-document)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| id | <code>string</code> | Element id |
+| tagName | <code>string</code> | Element tagName (div,p,a,etc.) |
 
 **Example** *(usage)*  
 ```js
@@ -217,7 +217,6 @@ Mock Element
 **Kind**: global external  
 **See**: [mockbot-element](https://www.npmjs.com/package/mockbot-element)  
 
-
 * * *
 
 ## Testing
@@ -243,6 +242,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * * *
 
 ## Version History
+
+#### Version 0.1.14
+
+* fixex getElementsByTagName documentation
 
 #### Version 0.1.13
 
